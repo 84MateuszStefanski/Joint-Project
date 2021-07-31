@@ -37,27 +37,20 @@ public class Hero {
     }
 
     public boolean isOverloaded() {
-        int counter = 0;
-        try{
-        for (int i=0;i<inventory.length;i++){
-            counter+=inventory[i].getWeigth();
-            if (counter<=100){
-                overloaded = false;
-            } else
-                overloaded = true;}
+        if (inventoryWeigth<=100){
+            overloaded = false;
+        }else {
+            overloaded = true;
         }
-        catch (NullPointerException e) {
-            System.out.println("No items in inventory");
-        }
+
         return overloaded;
     }
 
     public void showInventory(){
         for (InventoryObject object:inventory){
+            if(object!=null)
             System.out.println(object);
         }
-//        Arrays.stream(inventory)
-//                .forEach(System.out::println);
     }
 
     public boolean compareItems(InventoryObject inventoryObject){
