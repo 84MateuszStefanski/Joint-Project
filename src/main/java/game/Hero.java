@@ -57,18 +57,6 @@ public class Hero {
         }
     }
 
-   // public boolean compareItems(InventoryObject inventoryObject) {
-//        try {
-//            for (int i = 0; i < inventory.length; i++) {
-//                    if (inventory[i].getName().equals(inventoryObject.getName())
-//                            && inventory[i].getWeigth() == inventoryObject.getWeigth()) ;
-//                    return true;
-//            }
-//        } catch (NullPointerException e) {
-//            return false;
-//        }
-//        return false;
-//    }
 
     public boolean isThereFreePlaceInInventory() {
         for (int i = 0; i < inventory.length; i++) {
@@ -90,39 +78,20 @@ public class Hero {
         }
 
         for (int i = 0; i < inventory.length; i++) {
-            if (inventory[i]!=null&&inventory[i].equals(inventoryObject)){
+            if (inventory[i] != null && inventory[i].equals(inventoryObject)) {
                 inventory[i].setCount(inventory[i].getCount() + 1);
                 inventoryWeigth += inventoryObject.getWeigth();
                 System.out.println(inventoryObject.getName() + " The same item added to inventory");
                 break;
-            }
-            else {
-                if (inventory[i]==null){
+            } else {
+                if (inventory[i] == null) {
                     inventory[i] = inventoryObject;
                     inventoryWeigth += inventoryObject.getWeigth();
                     System.out.println(inventoryObject.getName() + " Added to inventory");
                     break;
-            }
+                }
             }
         }
-
-//        else if (compareItems(inventoryObject)) {
-//            for (int i = 0; i < inventory.length; i++) {
-//                inventory[i].setCount(inventory[i].getCount() + 1);
-//                inventoryWeigth += inventoryObject.getWeigth();
-//                System.out.println(inventoryObject.getName() + " The same item added to inventory");
-//                break;
-//            }
-//        } else if (compareItems(inventoryObject) == false && isThereFreePlaceInInventory()) {
-//            for (int i = 0; i < inventory.length; i++) {
-//                if (inventory[i]==null){
-//                inventory[i] = inventoryObject;
-//                inventoryWeigth += inventoryObject.getWeigth();
-//                System.out.println(inventoryObject.getName() + " Added to inventory");
-//                break;
-//            }}
-//        }
-
     }
 
 
