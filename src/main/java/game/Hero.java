@@ -37,6 +37,18 @@ public class Hero {
     }
 
     public boolean isOverloaded() {
+        int counter = 0;
+        try{
+        for (int i=0;i<inventory.length;i++){
+            counter+=inventory[i].getWeigth();
+            if (counter<=100){
+                overloaded = false;
+            } else
+                overloaded = true;}
+        }
+        catch (NullPointerException e) {
+            System.out.println("No items in inventory");
+        }
         return overloaded;
     }
 
@@ -48,21 +60,50 @@ public class Hero {
 //                .forEach(System.out::println);
     }
 
-    public void addItem(InventoryObject inventoryObject){
-        for (int i = 0; i< inventory.length;i++){
-           if(inventory[i] == null || inventoryWeigth < 100){
-                if (inventory[i].equals(inventoryObject)){
-                    inventory[i].setCount(inventory[i].getCount()+1);
-                    inventoryWeigth += inventoryObject.getWeigth();
-                }else{
-                    inventory[i] = inventoryObject;
-                    inventoryWeigth += inventoryObject.getWeigth();
-                }
-            }else {
-               overloaded = true;
-               System.out.println("Overload !!! To much inventory");
-           }
+    public boolean compareItems(InventoryObject inventoryObject){
+        try{for (int i = 0; i < inventory.length; i++) {
+           if (inventory[i].getName().equals(inventoryObject.getName())
+                    && inventory[i].getWeigth() == inventoryObject.getWeigth());
+           return true;
+        }}catch (NullPointerException e){
+          e.getCause();
         }
+        return false;
+    }
+
+    public boolean isThereFreePlaceInInventory(){
+        for (int i=0;i<inventory.length;i++){
+            if(inventory[i] == null){
+                return true;
+            }
+        }return false;
+    }
+
+
+    public void addItem(InventoryObject inventoryObject) {
+
+        if (isOverloaded()) {
+            System.out.println("Overload !!! To much inventory");
+        }else if (inventoryWeigth+inventoryObject.getWeigth()>=100){
+            System.out.println("Cannot add item it will be to much weigth");
+            }else {
+            for (int i = 0; i < inventory.length; i++) {
+                if (isThereFreePlaceInInventory()) {
+                    if (compareItems(inventoryObject)) {
+                        inventory[i].setCount(inventory[i].getCount() + 1);
+                        inventoryWeigth += inventoryObject.getWeigth();
+                        break;
+                    } else {
+                        inventory[i] = inventoryObject;
+                        inventoryWeigth += inventoryObject.getWeigth();
+                        break;
+                    }
+                }else {
+                    System.out.println("Inventory full");
+                }
+            }
+        }
+
     }
 
 
