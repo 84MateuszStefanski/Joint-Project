@@ -1,4 +1,8 @@
-package game;
+package game.characters;
+
+import game.items.Food;
+import game.items.InventoryObject;
+import game.items.Weapon;
 
 import java.util.Arrays;
 
@@ -57,17 +61,6 @@ public class Hero {
         }
     }
 
-
-    public boolean isThereFreePlaceInInventory() {
-        for (int i = 0; i < inventory.length; i++) {
-            if (inventory[i] == null) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-
     public void addItem(InventoryObject inventoryObject) {
 
         if (isOverloaded()) {
@@ -90,6 +83,24 @@ public class Hero {
                     System.out.println(inventoryObject.getName() + " Added to inventory");
                     break;
                 }
+            }
+        }
+    }
+
+    public void receivingDamage(Weapon weapon){
+        currentHealth -= weapon.getDamagePoints();
+        System.out.println("You get " + weapon.getDamagePoints() + " points of damage");
+        System.out.println("You have " + currentHealth + " health points left ");
+    }
+
+    public void eatToRegenerate(){
+        for (InventoryObject object : inventory){
+            if (object instanceof Food){
+                Food food = (Food) object;
+                currentHealth += food.getHealthPointsRegeneration();
+            } else {
+                System.out.println("No food to eat !");
+                break;
             }
         }
     }

@@ -1,4 +1,4 @@
-package game;
+package game.items;
 
 public class InventoryObject {
 
@@ -42,4 +42,7 @@ public class InventoryObject {
                 ", count=" + count +
                 '}';
     }
+
 }
+
+

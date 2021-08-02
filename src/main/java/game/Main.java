@@ -1,25 +1,48 @@
 package game;
 
+import game.characters.Hero;
+import game.characters.Warrior;
+import game.items.InventoryObject;
+import game.items.Weapon;
+
 public class Main {
 
     public static void main(String[] args) {
-        Hero hero = new Hero("Ezio","Assasin");
-        InventoryObject inventoryObject1 = new InventoryObject("Sword",20.0);
-        InventoryObject inventoryObject2 = new InventoryObject("Bow",15.0);
+
+        Weapon sword = new Weapon("Sword",20.0,10);
+        Weapon bow = new Weapon("Bow",15.0,5);
         InventoryObject inventoryObject3 = new InventoryObject("Knife",1.0);
 
-        hero.addItem(inventoryObject1);
-        hero.addItem(inventoryObject1);
+        Hero hero = new Warrior("Ezio","Assasin", sword,null);
+        Warrior hero2 = new Warrior("Ibra","Fighter", bow,null);
+
+        hero.addItem(sword);
+        hero.addItem(sword);
         hero.addItem(inventoryObject3);
 
         System.out.println(hero.getInventoryWeigth());
 
-        System.out.println(inventoryObject1.equals(inventoryObject2));
+        System.out.println(sword.equals(bow));
 
-        hero.addItem(inventoryObject2);
+        hero.addItem(bow);
         System.out.println(hero.getInventoryWeigth());
 
         hero.showInventory();
+
+        System.out.println("Health " +  hero.getCurrentHealth());
+
+        hero.receivingDamage(sword);
+
+        System.out.println("Health " +  hero.getCurrentHealth());
+
+        hero.eatToRegenerate();
+
+        hero2.addItem(bow);
+
+        System.out.println("Health " +  hero.getCurrentHealth());
+        hero.receivingDamage(hero2.getWeapon());
+        System.out.println("Health " +  hero.getCurrentHealth());
+
 
 
 
