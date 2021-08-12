@@ -2,6 +2,7 @@ package game;
 
 import game.characters.Hero;
 import game.characters.Warrior;
+import game.items.Food;
 import game.items.InventoryObject;
 import game.items.Weapon;
 
@@ -11,14 +12,14 @@ public class Main {
 
         Weapon sword = new Weapon("Sword",20.0,10);
         Weapon bow = new Weapon("Bow",15.0,5);
-        InventoryObject inventoryObject3 = new InventoryObject("Knife",1.0);
+        Food bread = new Food("Bread",1.0,10);
 
         Hero hero = new Warrior("Ezio","Assasin", sword,null);
         Warrior hero2 = new Warrior("Ibra","Fighter", bow,null);
 
         hero.addItem(sword);
         hero.addItem(sword);
-        hero.addItem(inventoryObject3);
+        hero.addItem(bread);
 
         System.out.println(hero.getInventoryWeigth());
 
