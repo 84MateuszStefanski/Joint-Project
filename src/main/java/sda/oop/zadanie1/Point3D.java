@@ -1,4 +1,4 @@
-package sda.zadanie1;
+package sda.oop.zadanie1;
 
 public class Point3D extends Point2D{
 

@@ -1,4 +1,4 @@
-package sda.zadanie3;
+package sda.oop.zadanie3;
 
 public class Rectangle extends Shape {
 

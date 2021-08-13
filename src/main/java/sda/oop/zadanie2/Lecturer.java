@@ -1,4 +1,4 @@
-package sda.zadanie2;
+package sda.oop.zadanie2;
 
 import java.math.BigDecimal;
 
