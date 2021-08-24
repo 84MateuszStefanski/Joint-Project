@@ -11,7 +11,12 @@
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
+        <sonar.projectKey>project</sonar.projectKey>
+        <sonar.qualitygate.wait>true</sonar.qualitygate.wait>
+
     </properties>
+
+
 
     <dependencies>
 
@@ -28,6 +33,8 @@
             <version>3.12.2</version>
             <scope>test</scope>
         </dependency>
+
+
 
     </dependencies>
 

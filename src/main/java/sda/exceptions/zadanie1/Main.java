@@ -6,7 +6,7 @@ public class Main {
 
         try {
             System.out.println(Divide.divide(10, 0));
-        } catch (CannotDivideBy0Exception e) {
+        } catch (CannotDivideByIdException e) {
             e.printStackTrace();
         }
     }
